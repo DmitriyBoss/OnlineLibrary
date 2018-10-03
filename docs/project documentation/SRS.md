@@ -16,8 +16,14 @@
 ![mainpage](https://user-images.githubusercontent.com/43030870/46442937-19ee9500-c774-11e8-9edd-748c90ee130e.png)
 
 Страница регистрации
-![adminpage](https://user-images.githubusercontent.com/43030870/46443008-633ee480-c774-11e8-8462-b8ad6552b0c2.png)
+![registrationpage](https://user-images.githubusercontent.com/43030870/46443075-a9944380-c774-11e8-9aac-ee67986185ca.png)
+
 Гланая страница администратора
+![adminpage](https://user-images.githubusercontent.com/43030870/46443008-633ee480-c774-11e8-8462-b8ad6552b0c2.png)
+
+Страница просмотра новых заявок на бронь
+Главная страница пользователя
+Страница результатов поиска книги
 
 ### 2.3 Характеристики пользователей
 #### 2.3.1 Классы пользователей
