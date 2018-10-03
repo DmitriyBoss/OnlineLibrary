@@ -7,7 +7,7 @@
 2. [Требования пользователя](#usersrequirements)  
   2.1 [Программные интерфейсы](#proginterfaces)  
   2.2 [Интерфейс пользователя](#userinterface)  
-  2.3 [Характеристики пользователей](#usercharacheteristics)  
+  2.3 [Характеристики пользователей](#usercharacheteristics)    
     2.3.1 [Классы пользователей](#class)  
     2.3.2 [Целевая аудитория](#people)  
 3. [Системные требования](#systemrequirements)  
