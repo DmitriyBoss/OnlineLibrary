@@ -2,9 +2,7 @@
 ## Содержание
 # Table of contents
 1. [Введение](#introduction)
-
   1.1 [Назначение](#purpose)
-  
   1.2 [Бизнес-требования](#business)
   
   1.3 [Аналоги](#analogue)
