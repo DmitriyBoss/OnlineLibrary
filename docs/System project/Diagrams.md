@@ -4,4 +4,5 @@
 3. [Диаграмма классов](https://github.com/SvetaReznichenko-650503/OnlineLibrary/blob/master/docs/System%20project/Class/ClassDiagram.md)
 4. [Диаграмма последовательности](https://github.com/SvetaReznichenko-650503/OnlineLibrary/blob/master/docs/System%20project/Sequence/SequenceDiagrams.md)
 5. [Диаграмма состояний](https://github.com/SvetaReznichenko-650503/OnlineLibrary/blob/master/docs/System%20project/Diagrams.md)
-6. [Диаграмма развёртывания](https://github.com/SvetaReznichenko-650503/OnlineLibrary/blob/master/docs/System%20project/Diagrams.md)
+6. [Диаграмма развёртывания](https://github.com/SvetaReznichenko-650503/OnlineLibrary/blob/master/docs/System%20project/Deployment/DeploymentDiagram.md)
+7. [Диаграмма компонентов](https://github.com/SvetaReznichenko-650503/OnlineLibrary/blob/master/docs/System%20project/Component/ComponentDiagram.md) 
