@@ -1,24 +1,33 @@
 package by.bsuir.library.bean;
 
+/**
+ * Abstract class for entity
+ * @author Svetlana Reznichenko
+ */
+
 public abstract class Entity {
+	
+	/** Int variable for */
 	private int id;
 
+	/** Default constructor for abstract class Entity*/
 	public Entity() {
 		super();
 
 	}
 
-	public Entity(int id) {
+	/** Constructor with parameters for Entity class*/
+	public Entity(final int ID) {
 		super();
-		this.id = id;
+		this.id = ID;
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(final int ID) {
+		this.id = ID;
 	}
 
 	@Override
@@ -30,16 +39,20 @@ public abstract class Entity {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(final Object OBJ) {
+		if (this == OBJ) {
 			return true;
-		if (obj == null)
+		}
+		if (OBJ == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != OBJ.getClass()) {
 			return false;
-		Entity other = (Entity) obj;
-		if (id != other.id)
+		}
+		final Entity OTHER = (Entity) OBJ;
+		if (id != OTHER.id) {
 			return false;
+		}
 		return true;
 	}
 

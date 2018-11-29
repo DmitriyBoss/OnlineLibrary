@@ -6,13 +6,18 @@ import java.util.List;
 
 import by.bsuir.library.bean.Book;
 import by.bsuir.library.bean.Booking;
-import by.bsuir.library.bean.Order;
 import by.bsuir.library.dao.BookingDao;
 import by.bsuir.library.dao.impl.BookingDaoMySqlImpl;
 import by.bsuir.library.service.BookingService;
 
+/**
+ * Public class for communication between controller and booking dao 
+ * @author Svetlana Reznichenko
+ *
+ */
 public class BookingServiceImpl implements BookingService{
 	
+	/** private variable for connection to BookingDaoMySqlImpl class*/
 	BookingDao bookingDao = new BookingDaoMySqlImpl();
 
 	@Override
@@ -28,49 +33,45 @@ public class BookingServiceImpl implements BookingService{
 	}
 
 	@Override
-	public boolean isBookingAvailable(int id) {
-		if(bookingDao.readBookingsAmount(id) < 5) {
-			return true;
-		} else {
-			return false;
-		}
+	public boolean isBookingAvailable(final int ID) {
+		return bookingDao.readBookingsAmount(ID) < 5;
+		
 	}
 
 	@Override
-	public void createBooking(int userId, int bookId) {
+	public void createBooking(final int USER_ID, final int BOOK_ID) {
 		Date dateNow = new Date();
 		SimpleDateFormat formatForDateNow = new SimpleDateFormat("ddMMyyyy");
-		Booking booking = new Booking(formatForDateNow.format(dateNow), userId, bookId, 3);
+		Booking booking = new Booking(formatForDateNow.format(dateNow), USER_ID, BOOK_ID, 3);
 		bookingDao.create(booking);
 		
 		
 	}
 
 	@Override
-	public void deleteBooking(int id) {
-		bookingDao.delete(id);
+	public void deleteBooking(final int ID) {
+		bookingDao.delete(ID);
 	}
 
 	@Override
-	public void updateBooking(Book book) {
+	public void updateBooking(final Book BOOK) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<Booking> getBookingsByUserId(int id) {
-		List<Booking> bookings = bookingDao.getBookingsByUserId(id);
-		return bookings;
+	public List<Booking> getBookingsByUserId(final int ID) {
+		return bookingDao.getBookingsByUserId(ID);
 	}
 
 	@Override
-	public int getBookIdByBooking(int id) {
-		return bookingDao.getBookId(id);
+	public int getBookIdByBooking(final int ID) {
+		return bookingDao.getBookId(ID);
 	}
 
 	@Override
-	public boolean checkIfBookIsFree(int bookId) {
-		return bookingDao.ifBookIsFree(bookId);
+	public boolean checkIfBookIsFree(final int BOOK_ID) {
+		return bookingDao.ifBookIsFree(BOOK_ID);
 	}
 
 	@Override
@@ -84,14 +85,14 @@ public class BookingServiceImpl implements BookingService{
 	}
 
 	@Override
-	public void acceptBooking(int id) {
-		bookingDao.updateAcceptById(id);
+	public void acceptBooking(final int ID) {
+		bookingDao.updateAcceptById(ID);
 		
 	}
 
 	@Override
-	public void rejectBooking(int id) {
-		bookingDao.updateRejectById(id);
+	public void rejectBooking(final int ID) {
+		bookingDao.updateRejectById(ID);
 		
 	}
 

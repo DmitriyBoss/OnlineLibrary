@@ -6,19 +6,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>New Bookings</title>
+<style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-<font size= "16">Here are active bookings: </font>
+<div class="four"><h1>Here are all active bookings</h1></div>
 
-<table border="1">
+<div class="table-page">
+  <div class="form">
+
+<table class="table_blur" class="login-form">
   <thead>
-    <td>
+    <tr>
+    <th>Id</th>
       <th>Booking date</th>
       <th>Title</th>
       <th>Name</th>
       <th>Surname</th>
-    </td>
+      <th>Delete</th>
+      <th>Make Order</th>
+    </tr>
   </thead>
   <tbody>
      <c:forEach items="${showActiveBookings}" var="booking">
@@ -32,20 +41,23 @@
          <form action="MainServlet" method="GET">
 	<input type="hidden" name="command" value="reject" />
 	<input type="hidden" name="booking_id" value="${booking.getId()}" />
-	<input type="submit" value="delete"/>
+	<button> delete </button>
 	</form>
 	</td>
 		<td> 
 		<form action="MainServlet" method="GET">
 	<input type="hidden" name="command" value="makeOrder" />
 	<input type="hidden" name="booking_id" value="${booking.getId()}" />
-	<input type="submit" value="make order"/>
+	<button> make order </button>
 	</form> 
 		</td>
        </tr>
      </c:forEach>
   </tbody>
 </table>
+
+</div>
+</div>
 
 </body>
 </html>

@@ -6,18 +6,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>New Bookings</title>
+<style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-<font size= "16">Here are new bookings: </font>
+<div class="four"><h1>Here are all books</h1></div>
 
-<table border="1">
+<div class="hello-page">
+  <div class="form">
+
+<table class="table_blur" class="login-form">
   <thead>
-    <td>
+    <tr>
+    <th>Id</th>
       <th>Title</th>
       <th>Author</th>
-      <th>Action</th>
-    </td>
+      <th>Delete</th>
+    </tr>
   </thead>
   <tbody>
      <c:forEach items="${showBookList}" var="book">
@@ -29,7 +36,7 @@
          <form action="MainServlet" method="GET">
 	<input type="hidden" name="command" value="deleteBook" />
 	<input type="hidden" name="book_id" value="${book.getId()}" />
-	<input type="submit" value="delete"/>
+	<button> delete </button>
 	</form>
 	</td>
        </tr>
@@ -37,6 +44,13 @@
   </tbody>
 </table>
 	<br/>
+	<hr/>
+	<p class="message"> 
+  
 	<a  href="admin.jsp">Back to main page</a>
+  </p>
+	
+</div>
+</div>
 </body>
 </html>

@@ -1,24 +1,39 @@
 package by.bsuir.library.bean;
 
+/**
+ * Entity class for booking
+ * @author Svetlana Reznichenko
+ */
+
 public class Booking extends Entity{
 	
+	/** String variable for booking's date*/
 	private String dateBooking;
+	/** Int variable for user's id*/
     private int userId;
+    /** Int variable for book's id*/
     private int bookId;
+    /** String variable for book's name*/
     private String book;
+    /** String variable for approved value*/
     private int isApproved;
+    /** String variable for user's name*/
     private String name;
+    /** String variable for user's surname*/
     private String surname;
     
+    /** Default constructor for class Booking*/
     public Booking() {
-    	
+    	super();
     }
     
-	public Booking(String date, int userId, int bookId, int isApproved) {
-		this.dateBooking = date;
-		this.userId = userId;
-		this.bookId = bookId;
-		this.isApproved = isApproved;
+    /** Constructor with variables for class Booking*/
+	public Booking(final String DATE, final int USER_ID, final int BOOK_ID, final int IS_APPROVED) {
+		super();
+		this.dateBooking = DATE;
+		this.userId = USER_ID;
+		this.bookId = BOOK_ID;
+		this.isApproved = IS_APPROVED;
 	}
 
     public String getDateBooking() {
@@ -41,40 +56,40 @@ public class Booking extends Entity{
     	return book;
     }
 
-    public void setDateBooking(String dateBooking) {
-        this.dateBooking = dateBooking;
+    public void setDateBooking(final String DATE_BOOKING) {
+        this.dateBooking = DATE_BOOKING;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserId(final int USER_ID) {
+        this.userId = USER_ID;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setBookId(final int BOOK_ID) {
+        this.bookId = BOOK_ID;
     }
 
-    public void setIsApproved(int isApproved) {
-        this.isApproved = isApproved;
+    public void setIsApproved(final int IS_APPROVED) {
+        this.isApproved = IS_APPROVED;
     }
     
-    public void setBook(String book) {
-    	this.book = book;
+    public void setBook(final String BOOK) {
+    	this.book = BOOK;
     }
 
     public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(final String NAME) {
+		this.name = NAME;
 	}
 
 	public String getSurname() {
 		return surname;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setSurname(final String SURNAME) {
+		this.surname = SURNAME;
 	}
 
 	@Override
@@ -92,40 +107,54 @@ public class Booking extends Entity{
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Booking other = (Booking) obj;
+    public boolean equals(final Object OBJ) {
+        if (this == OBJ) {
+        	return true;
+        }
+        if (!super.equals(OBJ)) {
+        	return false;
+        }
+        if (getClass() != OBJ.getClass()) {
+        	return false;
+        }
+        final Booking OTHER = (Booking) OBJ;
         if (dateBooking == null) {
-            if (other.dateBooking != null)
-                return false;
-        } else if (!dateBooking.equals(other.dateBooking))
-            return false;
-        if (userId != other.userId)
-            return false;
-        if (bookId != other.bookId)
-            return false;
-        if (isApproved != other.isApproved)
-            return false;
+            if (OTHER.dateBooking != null) {
+            	return false;
+            }
+        } else if (!dateBooking.equals(OTHER.dateBooking)) {
+        	return false;
+        }
+        if (userId != OTHER.userId) {
+        	return false;
+        }
+        if (bookId != OTHER.bookId) {
+        	return false;
+        }
+        if (isApproved != OTHER.isApproved) {
+        	return false;
+        }
         if (book == null) {
-            if (other.book != null)
-                return false;
-        } else if (!book.equals(other.book))
-            return false;
+            if (OTHER.book != null) {
+            	return false;
+            }
+        } else if (!book.equals(OTHER.book)) {
+        	return false;
+        }
         if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
+            if (OTHER.name != null) {
+            	return false;
+            }
+        } else if (!name.equals(OTHER.name)) {
+        	return false;
+        }
         if (surname == null) {
-            if (other.surname != null)
-                return false;
-        } else if (!surname.equals(other.surname))
-            return false;
+            if (OTHER.surname != null) {
+            	return false;
+            }
+        } else if (!surname.equals(OTHER.surname)) {
+        	return false;
+        }
         return true;
     }
 

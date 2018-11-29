@@ -6,34 +6,47 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>User</title>
+<style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-	<font size= "16">Welcome</font>
-	 <hr/>
-	<c:out value="${user}, hello!" />
-	<hr/> 
-	<a  href="index.jsp">Logout</a>
-<form action="MainServlet" method="GET">
+<div class="four"><h1>Welcome to your personal account</h1></div>
+	
+<div class="login-page">
+  <div class="form">	
+<form action="MainServlet" method="GET" class="login-form">
 		<input type="hidden" name="command" value="showBookList" /> 
-		<input type="hidden" name="user_login" value="${user_login}" />
-		<input type="submit" value="show books"/>
-</form>
-<form action="MainServlet" method="GET">
-<input type="hidden" name="command" value="searchBook"/>
-<br/>Input book:<br/>  
-<input type="text" name="bookValue" />
-<input type="submit" value="find book" />
+		<button>book list</button>
 </form>
 
-<form action="MainServlet" method="GET">
+<br>
+
+<form action="MainServlet" method="GET" class="login-form">
+<input type="hidden" name="command" value="searchBook"/> 
+<input type="text" name="bookValue" placeholder="book or author"/>
+<button>search</button>
+</form>
+
+<br>
+
+<form action="MainServlet" method="GET" class="login-form">
 <input type="hidden" name="command" value="showOrdersHistory"/>
-<input type="submit" value="orders history" />
+<button>orders' history</button>
 </form>
 
-<form action="MainServlet" method="GET">
+<br>
+
+<form action="MainServlet" method="GET" class="login-form">
 <input type="hidden" name="command" value="showBookingsHistory"/>
-<input type="submit" value="bookings history" />
+<button>bookings' history</button>
 </form>
+
+<p class="message"> 
+  <hr/>
+	<a  href="index.jsp">Logout</a>
+  </p>
+
 </body>
 </html>

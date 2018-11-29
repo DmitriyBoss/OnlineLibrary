@@ -1,17 +1,27 @@
 package by.bsuir.library.bean;
 
+/**
+ * Entity class for author
+ * @author Svetlana Reznichenko
+ */
+
 public class Author extends Entity {
 
+	/** String variable for author's name*/
     private String name;
+    /** String variable for author's birthday*/
     private String birthDate;
     
+    /** Default constructor for class Author*/
     public Author() {
-    	
+    	super();
     }
     
-    public Author(String name, String birthDate) {
-    	this.name = name;
-    	this.birthDate = birthDate;
+    /** Constructor with parameters for class Author*/
+    public Author(final String NAME, final String BIRTH_DATE) {
+    	super();
+    	this.name = NAME;
+    	this.birthDate = BIRTH_DATE;
     }
 
     public String getName() {
@@ -22,12 +32,12 @@ public class Author extends Entity {
         return birthDate;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(final String NAME) {
+        this.name = NAME;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthDate(final String BIRTH_DATE) {
+        this.birthDate = BIRTH_DATE;
     }
 
     @Override
@@ -40,24 +50,31 @@ public class Author extends Entity {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Author other = (Author) obj;
+    public boolean equals(final Object OBJ) {
+        if (this == OBJ) {
+        	return true;
+        }
+        if (!super.equals(OBJ)) {
+        	return false;
+        }
+        if (getClass() != OBJ.getClass()) {
+        	return false;
+        }
+        final Author OTHER = (Author) OBJ;
         if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
+            if (OTHER.name != null) {
+            	return false;
+            }
+        } else if (!name.equals(OTHER.name)) {
+        	return false;
+        }
         if (birthDate == null) {
-            if (other.birthDate != null)
-                return false;
-        } else if (!birthDate.equals(other.birthDate))
-            return false;
+            if (OTHER.birthDate != null) {
+            	return false;
+            }
+        } else if (!birthDate.equals(OTHER.birthDate)) {
+        	return false;
+        }
         return true;
     }
 

@@ -6,19 +6,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>New Bookings</title>
+<style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-<font size= "16">Here are active orders: </font>
+<div class="four"><h1>Here are all active orders</h1></div>
 
-<table border="1">
+<div class="table-page">
+  <div class="form">
+
+<table class="table_blur" class="login-form">
   <thead>
-    <td>
+    <tr>
+    <th>Id</th>
       <th>Taking date</th>
       <th>Title</th>
       <th>Name</th>
       <th>Surname</th>
-    </td>
+      <th>Was returned</th>
+    </tr>
   </thead>
   <tbody>
      <c:forEach items="${showActiveOrders}" var="order">
@@ -32,13 +40,16 @@
          <form action="MainServlet" method="GET">
 	<input type="hidden" name="command" value="wasReturned" />
 	<input type="hidden" name="order_id" value="${order.getId()}" />
-	<input type="submit" value="wasReturned"/>
+	<button> was returned </button>
 	</form>
 	</td>
        </tr>
      </c:forEach>
   </tbody>
 </table>
+
+</div>
+</div>
 
 </body>
 </html>

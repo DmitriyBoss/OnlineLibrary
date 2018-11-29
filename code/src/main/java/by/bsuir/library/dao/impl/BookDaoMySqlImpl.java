@@ -11,20 +11,33 @@ import java.util.List;
 import by.bsuir.library.bean.Book;
 import by.bsuir.library.dao.BookDao;
 
+/**
+ * Public class for Book's interaction with database
+ * @author Svetlana Reznichenko
+ */
 public class BookDaoMySqlImpl extends AbstractDaoMySqlImpl implements BookDao{
 	
+	/** private variable for book insert string */
 	private static final String SQL_BOOK_INSERT = "insert into book(title, amount, authorId) values (?, ?, ?)";
+	/** private variable for book selecting string */
 	private static final String SQL_BOOK_SELECT_ID = "select title from library where id= ?";
+	/** private variable for book update string */
 	private static final String SQL_BOOK_UPDATE = "UPDATE library SET title = ?, year = ?, author = ? where id = ?";
+	/** private variable for book amount decrement string */
 	private static final String SQL_BOOK_DECREMENT = "UPDATE book SET amount = amount - 1 WHERE id = ?";
+	/** private variable for book increment string */
 	private static final String SQL_BOOK_INCREMENT = "UPDATE book SET amount = amount + 1 WHERE id = ?";
+	/** private variable for book delete string */
 	private static final String SQL_BOOK_DELETE = "DELETE FROM book WHERE id = ?";
+	/** private variable for book select string */
 	private static final String SQL_BOOK_SELECT_ALL_USER = "SELECT librarydb.book.id, librarydb.book.title, librarydb.author.name \r\n" + 
 			"FROM librarydb.book\r\n" + 
 			"INNER JOIN librarydb.author\r\n" + 
 			"ON librarydb.book.authorId = librarydb.author.id\r\n" + 
 			"WHERE librarydb.book.amount > 0"; 
+	/** private variable for selecting book by title string */
 	private static final String SQL_BOOK_SELECT_BY_TITLEE = "select * from library where title = ?";
+	/** private variable for selecting book by title string */
 	private static final String SQL_BOOK_SELECT_BY_TITLE = "SELECT librarydb.book.id, librarydb.book.title, librarydb.author.name \r\n" + 
 			"FROM librarydb.book\r\n" + 
 			"INNER JOIN librarydb.author \r\n" + 
@@ -40,16 +53,17 @@ public class BookDaoMySqlImpl extends AbstractDaoMySqlImpl implements BookDao{
 			"AND librarydb.book.authorId = (SELECT librarydb.author.id \r\n" + 
 			"							   FROM librarydb.author\r\n" + 
 			"							   WHERE POSITION(? in librarydb.author.name) > 0)";
-	protected Connection con;
+	/** protected variable for Connection */
+	protected transient Connection con;
 
 	@Override
-	public void create(Book book) {
+	public void create(final Book BOOK) {
 		try {
 			con = wcn.getConnection();
 			PreparedStatement ps = con.prepareStatement(SQL_BOOK_INSERT);
-			ps.setString(1, book.getName());
-			ps.setInt(2,  book.getAmount());
-			ps.setInt(3,  book.getAuthorId());
+			ps.setString(1, BOOK.getName());
+			ps.setInt(2,  BOOK.getAmount());
+			ps.setInt(3,  BOOK.getAuthorId());
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -67,7 +81,7 @@ public class BookDaoMySqlImpl extends AbstractDaoMySqlImpl implements BookDao{
 	}
 
 	@Override
-	public Book read(int id) {
+	public Book read(final int ID) {
 		Book book = new Book();
 //		try {
 //			con = wcn.getConnection();
@@ -92,13 +106,13 @@ public class BookDaoMySqlImpl extends AbstractDaoMySqlImpl implements BookDao{
 	}
 	
 	@Override
-	public List<Book> readByTitle(String title) {
+	public List<Book> readByTitle(final String TITLE) {
 		List<Book> foundBooks = new ArrayList<>();
 		try {
 			con = wcn.getConnection();
 			PreparedStatement ps = con.prepareStatement(SQL_BOOK_SELECT_BY_TITLE);
-			ps.setString(1, title);
-			ps.setString(2, title);
+			ps.setString(1, TITLE);
+			ps.setString(2, TITLE);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				foundBooks.add(createBook(rs));
@@ -110,7 +124,7 @@ public class BookDaoMySqlImpl extends AbstractDaoMySqlImpl implements BookDao{
 	}
 
 	@Override
-	public void update(Book book) {
+	public void update(final Book BOOK) {
 //		try {
 //			con = wcn.getConnection();
 //			PreparedStatement ps = con.prepareStatement(SQL_BOOK_UPDATE);
@@ -134,11 +148,11 @@ public class BookDaoMySqlImpl extends AbstractDaoMySqlImpl implements BookDao{
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(final int ID) {
 		try {
 			con = wcn.getConnection();
 			PreparedStatement ps = con.prepareStatement(SQL_BOOK_DELETE);
-			ps.setInt(1,  id);
+			ps.setInt(1,  ID);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -155,12 +169,11 @@ public class BookDaoMySqlImpl extends AbstractDaoMySqlImpl implements BookDao{
 		
 	}
 	
-	public Book createBook(ResultSet rs) throws SQLException {
+	public Book createBook(final ResultSet RS) throws SQLException {
 		Book book = new Book();
-		book.setId(rs.getInt(SQL_ID));
-		book.setName(rs.getString(SQL_BOOK_TITLE));
-		book.setAuthor(rs.getString(SQL_BOOK_AUTHOR));
-		System.out.println("AUTHOR IS: " + book.getAuthor());
+		book.setId(RS.getInt(SQL_ID));
+		book.setName(RS.getString(SQL_BOOK_TITLE));
+		book.setAuthor(RS.getString(SQL_BOOK_AUTHOR));
 		return book;
 	}
 
@@ -209,11 +222,11 @@ public class BookDaoMySqlImpl extends AbstractDaoMySqlImpl implements BookDao{
 	}
 
 	@Override
-	public void incrementBookAmount(int bookId) {
+	public void incrementBookAmount(final int BOOK_ID) {
 		try {
 			con = wcn.getConnection();
 			PreparedStatement ps = con.prepareStatement(SQL_BOOK_INCREMENT);
-			ps.setInt(1, bookId);
+			ps.setInt(1, BOOK_ID);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

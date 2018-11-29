@@ -1,26 +1,40 @@
 package by.bsuir.library.bean;
 
+/**
+ * Entity class for book
+ * @author Svetlana Reznichenko
+ */
+
 public class Book extends Entity {
 
+	/** String variable for name*/
 	private String name;
+	/** Int variable for bokk's amount*/
     private int amount;
+    /** String variable for author's name*/
     private String author;
+    /** Int variable for author's id*/
     private int authorId;
     
+    /** Default constructor for class Book*/
     public Book() {
-    	
+    	super();
     }
     
-    public Book(String name, int authorId, int amount) {
-    	this.name = name;
-    	this.authorId = authorId;
-    	this.amount = amount;
+    /** Constructor with parameters for class Book*/
+    public Book(final String NAME, final int AUTHOR_ID, final int AMOUNT) {
+    	super();
+    	this.name = NAME;
+    	this.authorId = AUTHOR_ID;
+    	this.amount = AMOUNT;
     }
     
-    public Book(String name, String author, int amount) {
-    	this.name = name;
-    	this.author = author;
-    	this.amount = amount;
+    /** Constructor with parameters for class Book*/
+    public Book(final String NAME, final String AUTHOR, final int AMOUNT) {
+    	super();
+    	this.name = NAME;
+    	this.author = AUTHOR;
+    	this.amount = AMOUNT;
     }
 
     public String getName() {
@@ -39,20 +53,20 @@ public class Book extends Entity {
         return author;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(final String NAME) {
+        this.name = NAME;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setAmount(final int AMOUNT) {
+        this.amount = AMOUNT;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthor(final String AUTHOR) {
+        this.author = AUTHOR;
     }
     
-    public void setAuthorId(int authorId) {
-        this.authorId = authorId;
+    public void setAuthorId(final int AUTHOR_ID) {
+        this.authorId = AUTHOR_ID;
     }
 
     @Override
@@ -67,28 +81,36 @@ public class Book extends Entity {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Book other = (Book) obj;
+    public boolean equals(final Object OBJ) {
+        if (this == OBJ) {
+        	return true;
+        }
+        if (!super.equals(OBJ)) {
+        	return false;
+        }
+        if (getClass() != OBJ.getClass()) {
+        	return false;
+        }
+        final Book OTHER = (Book) OBJ;
         if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        if (amount != other.amount)
-            return false;
+            if (OTHER.name != null) {
+            	return false;
+            }
+        } else if (!name.equals(OTHER.name)) {
+        	return false;
+        }
+        if (amount != OTHER.amount)
+        	return false;
         if (author == null) {
-            if (other.author != null)
-                return false;
-        } else if (!author.equals(other.author))
-            return false;
-        if (authorId != other.authorId)
-            return false;
+            if (OTHER.author != null) {
+            	return false;
+            }
+        } else if (!author.equals(OTHER.author)) {
+        	return false;
+        }
+        if (authorId != OTHER.authorId) {
+        	return false;
+        }
         return true;
     }
 

@@ -1,22 +1,35 @@
 package by.bsuir.library.bean;
 
+/**
+ * Entity class for order
+ * @author Svetlana Reznichenko
+ */
+
 public class Order extends Entity {
 
+	/** String variable for taking date*/
     private String dateTaking;
+    /** String variable for book's name*/
     private String book;
+    /** Int variable for booking's id*/
     private int bookingId;
+    /** Int variable isReturned value*/
     private int isReturned;
+    /** String variable for user's name*/
     private String name;
+    /** String variable for surname's name*/
     private String surname;
     
+    /** Default constructor for class Order*/
     public Order() {
-    	
+    	super();
     }
     
-    public Order(String date, int bookingId, int isReturned) {
-    	this.dateTaking = date;
-    	this.bookingId = bookingId;
-    	this.isReturned = isReturned;
+    /** Constructor with parameters for class Order*/
+    public Order(final String DATE, final int BOOKING_ID, final int IS_RETURNED) {
+    	this.dateTaking = DATE;
+    	this.bookingId = BOOKING_ID;
+    	this.isReturned = IS_RETURNED;
     }
 
     public String getName() {
@@ -27,20 +40,20 @@ public class Order extends Entity {
 		return bookingId;
 	}
 
-	public void setBookingId(int bookingId) {
-		this.bookingId = bookingId;
+	public void setBookingId(final int BOOKING_ID) {
+		this.bookingId = BOOKING_ID;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(final String NAME) {
+		this.name = NAME;
 	}
 
 	public String getSurname() {
 		return surname;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setSurname(final String SURNAME) {
+		this.surname = SURNAME;
 	}
 
 	public String getDateTaking() {
@@ -55,16 +68,16 @@ public class Order extends Entity {
         return isReturned;
     }
 
-    public void setDateTaking(String dateTaking) {
-        this.dateTaking = dateTaking;
+    public void setDateTaking(final String DATE_TAKING) {
+        this.dateTaking = DATE_TAKING;
     }
 
-    public void setBook(String book) {
-        this.book = book;
+    public void setBook(final String BOOK) {
+        this.book = BOOK;
     }
 
-    public void setIsReturned(int isReturned) {
-        this.isReturned = isReturned;
+    public void setIsReturned(final int IS_RETURNED) {
+        this.isReturned = IS_RETURNED;
     }
 
     @Override
@@ -81,38 +94,51 @@ public class Order extends Entity {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Order other = (Order) obj;
+    public boolean equals(final Object OBJ) {
+        if (this == OBJ) {
+        	return true;
+        }
+        if (!super.equals(OBJ)) {
+        	return false;
+        }
+        if (getClass() != OBJ.getClass()) {
+        	return false;
+        }
+        final Order ORDER = (Order) OBJ;
         if (dateTaking == null) {
-            if (other.dateTaking != null)
-                return false;
-        } else if (!dateTaking.equals(other.dateTaking))
-            return false;
+            if (ORDER.dateTaking != null) {
+            	return false;
+            }
+        } else if (!dateTaking.equals(ORDER.dateTaking)) {
+        	return false;
+        }
         if (book == null) {
-            if (other.book != null)
-                return false;
-        } else if (!book.equals(other.book))
-            return false;
-        if (isReturned != other.isReturned)
-            return false;
+            if (ORDER.book != null) {
+            	return false;
+            }
+        } else if (!book.equals(ORDER.book)) {
+        	return false;
+        }
+        if (isReturned != ORDER.isReturned) {
+        	return false;
+        }
         if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
+            if (ORDER.name != null) {
+            	return false;
+            }
+        } else if (!name.equals(ORDER.name)) {
+        	return false;
+        }
         if (surname == null) {
-            if (other.surname != null)
-                return false;
-        } else if (!surname.equals(other.surname))
-            return false;
-        if (bookingId != other.bookingId)
-            return false;
+            if (ORDER.surname != null) {
+            	return false;
+            }
+        } else if (!surname.equals(ORDER.surname)) {
+        	return false;
+        }
+        if (bookingId != ORDER.bookingId) {
+        	return false;
+        }
         return true;
     }
 

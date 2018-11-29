@@ -6,44 +6,66 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Admin</title>
+<style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-	<font size= "16">Welcome</font>
-	<!--  <hr/>
-	<c:out value="${user}, hello!" />
-	<hr/> -->
-	
-	<form action="MainServlet" method="GET">
+	<div class="four"><h1>Welcome to admin's main page</h1></div>
+<div class="login-page">
+  <div class="form">
+  	
+  <p class="message">
+  <br/>Actions with users: </p>
+  
+	<form action="MainServlet" method="GET" class="login-form">
 	<input type="hidden" name="command" value="showUserList" />
-	<input type="submit" value="showUserList"/>
+	<button>user list</button>
+	<!-- <input type="submit" value="showUserList"/>  -->
 	</form>
 	
-	<form action="MainServlet" method="GET">
+	<p class="message">
+  <br/>Actions with books: </p>
+	<form action="MainServlet" method="GET" class="login-form">
 	<input type="hidden" name="command" value="showBookListAdmin" />
-	<input type="submit" value="show booklist"/>
+	<button>book list</button>
 	</form>
 	
-	<a  href="createBook.jsp">Create Book</a>
+	<p class="message"> 
+  <a  href="createBook.jsp"><button>create book</button></a>
+  </p>
 	
-	<form action="MainServlet" method="GET">
+	<p class="message">
+  <br/>Actions with bookings and orders: </p>
+	
+	<form action="MainServlet" method="GET" class="login-form">
 	<input type="hidden" name="command" value="showNewBookings" />
-	<input type="submit" value="New Bookings"/>
+	<button>new bookings</button>
 	</form>
 	
-	<form action="MainServlet" method="GET">
+	<br>
+	
+	<form action="MainServlet" method="GET" class="login-form">
 	<input type="hidden" name="command" value="showActiveBookings" />
-	<input type="submit" value="Active Bookings"/>
+	<button>active bookings</button>
 	</form>
 	
-	<form action="MainServlet" method="GET">
+	<br>
+	
+	<form action="MainServlet" method="GET" class="login-form">
 	<input type="hidden" name="command" value="showActiveOrders" />
-	<input type="submit" value="Active Orders"/>
+	<button>active orders</button>
 	</form>
 
 
 <p>
-	<hr/>
+
+<p class="message"> 
+  <hr/>
 	<a  href="index.jsp">Logout</a>
+  </p>
+	</div>
+</div>
 </body>
 </html>

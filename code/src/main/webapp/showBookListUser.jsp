@@ -6,21 +6,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Show Book List</title>
+<style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-<font size= "16">Welcome</font>
-	 <hr/>
-	<c:out value="${user}, hello!" />
-	<hr/> 
+<div class="four"><h1>Here are all books</h1></div> 
 
-<table border="1">
+<div class="users-page">
+  <div class="form">
+
+<table class="table_blur">
   <thead>
-    <td>
+    <tr>
+    <th>Id</th>
       <th>Title</th>
       <th>Author</th>
       <th>Action</th>
-    </td>
+    </tr>
   </thead>
   <tbody>
      <c:forEach items="${showBookList}" var="book">
@@ -32,8 +36,7 @@
          <form action="MainServlet" method="GET">
 	<input type="hidden" name="command" value="bookBook" />
 	<input type="hidden" name="book_id" value="${book.getId()}" />
-	<input type="hidden" name="user_login" value="${user}" />
-	<input type="submit" value="book"/>
+	<button> to book </button>
 	</form>
 	</td>
        </tr>
@@ -41,22 +44,14 @@
   </tbody>
 </table>
 
-
-
-
-
-	<!-- <h3>List Books:</h3>
-	<c:forEach items="${showBookList}" var="book" >
-	<p>
-	<c:out value="${book.getName()}" />
-	<form action="MainServlet" method="GET">
-	<input type="hidden" name="command" value="book_book" />
-	<input type="hidden" name="book_id" value="${book.getId()}" />
-	<input type="submit" value="book"/>
-	</form>
-
-	</c:forEach> -->
-	<br/>
+<br/>
+<p class="message"> 
+  <hr/>
 	<a  href="user.jsp">Back to user page</a>
+  </p>
+
+</div>
+</div>
+	
 </body>
 </html>

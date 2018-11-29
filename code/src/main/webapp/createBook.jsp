@@ -5,20 +5,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Create Book</title>
+<style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-<form action="MainServlet" method="GET">
+<div class="four"><h1>Create new book</h1></div>
+
+<div class="login-page">
+  <div class="form">
+<form action="MainServlet" method="GET" class="login-form">
 	<input type="hidden" name="command" value="createBook" />
-	<br/>Title:<br/>
-    <input type="text" name="createTitle" />
-    <br/>AuthorId:<br/>
-    <input type="text" name="createAuthorId"/>
-    <br/>Amount:<br/>
-    <input type="text" name="createAmount" />
+	
+    <input type="text" name="createTitle" placeholder="title"/>
+    
+    <input type="text" name="createAuthorId" placeholder="author"/>
+    
+    <input type="text" name="createAmount" placeholder="amount"/>
     <br/>
-	<input type="submit" value="create"/>
+	<button>create</button>
 	</form>
+
+</div>
+</div>
 
 </body>
 </html>

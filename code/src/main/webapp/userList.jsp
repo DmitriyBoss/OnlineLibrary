@@ -6,19 +6,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Show Users</title>
+<style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-<h3>Users List:</h3>
+<div class="four"><h1>Here are all users</h1></div>
 
-<table border="1">
+<div class="user-page">
+  <div class="form">
+<table class="table_blur" class="login-form">
   <thead>
-    <td>
+    <tr>
+    <th>Id</th>
       <th>Name</th>
       <th>Surname</th>
       <th>Email</th>
       <th>Login</th>
-    </td>
+    </tr>
   </thead>
   <tbody>
      <c:forEach items= "${showUserList}" var="user">
@@ -33,6 +39,10 @@
   </tbody>
 </table>
 
+<p class="message"> 
+  <hr/>
 	<a  href="admin.jsp">Back to the main page</a>
+  </p>
+
 </body>
 </html>

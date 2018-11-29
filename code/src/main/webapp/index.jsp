@@ -5,22 +5,30 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Sign in</title>
+  <style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-<form name="LoginForm" method="POST" action="MainServlet">
+<div class="four"><h1>Welcome to online library</h1></div>
+
+<div class="login-page">
+  <div class="form">
+<form name="LoginForm" method="POST" action="MainServlet" class="login-form">
   <input type="hidden" name="command" value="signInForm"/>
-  <br/>Login:<br/>
-  <input type="text" name="login"/>
-  <br/>Password:<br/>
-  <input type="password" name="password"/>
-  <br/>
-  <hr/>
-  <input type="submit" value="Log in"/>
-  <br/>If you don't have account:<br/>
-  <a href="registration.jsp">Registration</a>
+  <input type="text" name="login" placeholder="login"/>
+  <input type="password" name="password" placeholder="password"/>
+  <button>sign in</button>
+  <!--  <input type="submit" value="Log in"/>-->
+  <p class="message">
+  <br/>If you don't have account 
+  <a href="registration.jsp">Create account</a>
+  </p>
 </form>
 <hr/>
+</div>
+</div>
 </body>
 </html>
 

@@ -9,21 +9,25 @@ import by.bsuir.library.dao.OrderDao;
 import by.bsuir.library.dao.impl.OrderDaoMySqlImpl;
 import by.bsuir.library.service.OrderService;
 
+/**
+ * Public class for communication between controller and order dao 
+ * @author Svetlana Reznichenko
+ *
+ */
 public class OrderServiceImpl implements OrderService{
 	
+	/** private variable for connection to OrderDaoMySqlImpl class*/
 	OrderDao orderDao = new OrderDaoMySqlImpl();
 
 	@Override
-	public List<Order> getActiveOrders(int userId) {
+	public List<Order> getActiveOrders(final int userId) {
 		
-		List<Order> orders = orderDao.getOrdersByUserId(userId, 0);
-		return orders;
+		return orderDao.getOrdersByUserId(userId, 0);
 	}
 
 	@Override
-	public List<Order> getInactiveOrders(int userId) {
-		List<Order> orders = orderDao.getOrdersByUserId(userId, 1);
-		return orders;
+	public List<Order> getInactiveOrders(final int USER_ID) {
+		return orderDao.getOrdersByUserId(USER_ID, 1);
 	}
 
 	@Override
@@ -32,16 +36,16 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public void closeOrder(int orderId) {
-		orderDao.updateOrderClose(orderId);
+	public void closeOrder(final int ORDER_ID) {
+		orderDao.updateOrderClose(ORDER_ID);
 		
 	}
 
 	@Override
-	public void createOrder(int bookId) {
+	public void createOrder(final int BOOK_ID) {
 		Date dateNow = new Date();
 		SimpleDateFormat formatForDateNow = new SimpleDateFormat("ddMMyyyy");
-		Order order = new Order(formatForDateNow.format(dateNow), bookId, 0);
+		Order order = new Order(formatForDateNow.format(dateNow), BOOK_ID, 0);
 		orderDao.create(order);
 		
 	}

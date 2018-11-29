@@ -5,23 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Sign in</title>
+ <style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-<form name="SignUpForm" method="POST" action="MainServlet">
+<div class="login-page">
+  <div class="form">
+<form name="SignUpForm" method="POST" action="MainServlet" class="login-form">
 <input type="hidden" name="command" value="signUpForm"/>
-<br/>Name:<br/>
-<input type="text" name="name"/>
-<br/>Surname:<br/>
-<input type="text" name="surname"/>
-<br/>Email:<br/>
-<input type="text" name="email"/>
-<br/>Login:<br/>
-<input type="text" name="login" />
-<br/>Password:<br/>
-<input type="password" name="password"/>
+<input type="text" name="name" placeholder="name"/>
+<input type="text" name="surname" placeholder="surname"/>
+<input type="text" name="email" placeholder="email"/>
+<input type="text" name="login" placeholder="login"/>
+<input type="password" name="password" placeholder="password"/>
 <br/>
 <hr/>
-<input type="submit" value="Register" />
+<button>sign up</button>
+</form>
+</div>
+</div>
 </body>
 </html>

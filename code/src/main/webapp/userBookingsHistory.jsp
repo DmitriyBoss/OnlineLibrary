@@ -6,15 +6,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Bookings</title>
+<style>
+    <%@include file="/WEB-INF/style.css"%>
+</style>
 </head>
 <body>
 
-<table border="1">
+<div class="four"><h1>Here is your bookings' history</h1></div> 
+
+<div class="userss-page">
+  <div class="form">
+
+<table class="table_blur">
   <thead>
-    <td>
+    <tr>
+    <th>Id</th>
       <th>Taking date</th>
       <th>Book</th>
-    </td>
+      <th>Cancel</th>
+    </tr>
   </thead>
   <tbody>
      <c:forEach items= "${showBookings}" var="booking">
@@ -26,7 +36,7 @@
          <form action="MainServlet" method="GET">
 	<input type="hidden" name="command" value="cancelBooking" />
 	<input type="hidden" name="booking_id" value="${booking.getId()}" />
-	<input type="submit" value="cancel"/>
+	<button> cancel </button>
 	</form>
 	</td>
        </tr>
@@ -34,5 +44,13 @@
   </tbody>
 </table>
 
+<br/>
+<p class="message"> 
+  <hr/>
+	<a  href="user.jsp">Back to user page</a>
+  </p>
+
+</div>
+</div>
 </body>
 </html>
